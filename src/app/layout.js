@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,71 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header>
+          <div className="logo">
+            <Link href="/" aria-label="Homepage">
+              Romania Tourism
+            </Link>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <Link href="/" aria-label="Go to Home">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/About" aria-label="Learn more About us">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/Explore" aria-label="Discover Destinations">
+                  Destinations
+                </Link>
+              </li>
+              <li>
+                <Link href="/Cuisine" aria-label="Discover Destinations">
+                  Cuisine
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" aria-label="Contact Us">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
         {children}
+        <footer className="mt-5 bg-gray-800">
+          <div className="contact">
+            <h4>Contact Us</h4>
+            <p>
+              Email:{" "}
+              <a href="mailto:info@romaniatourism.com">
+                info@romaniatourism.com
+              </a>
+            </p>
+            <p>
+              Phone: <a href="tel:+18005550199">1-800-555-0199</a>
+            </p>
+          </div>
+          <div className="social-media ">
+            <h4>Follow Us</h4>
+            <div className="flex flex-row gap-10 ml-[200px] mt-6">
+              <a href="#" aria-label="Follow us on Facebook">
+                Facebook
+              </a>
+              <a href="#" aria-label="Follow us on Twitter">
+                Twitter
+              </a>
+              <a href="#" aria-label="Follow us on Instagram">
+                Instagram
+              </a>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
