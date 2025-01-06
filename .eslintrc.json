@@ -1,8 +1,3 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "react/no-unescaped-entities": "off", // Example: Turn off specific rule
-    "no-console": "warn", // Example: Warn on console statements
-    "no-unused-vars": "error" // Example: Make unused variables an error
-  }
+  "extends": "next/core-web-vitals next/babel"
 }
