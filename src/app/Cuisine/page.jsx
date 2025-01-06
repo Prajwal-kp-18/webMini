@@ -175,7 +175,7 @@ const RomaniaFoods = () => {
           Desserts
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-white">
         {filteredFoods.map((food, index) => (
           <div
             key={index}
@@ -192,8 +192,10 @@ const RomaniaFoods = () => {
               alt={food.name}
               className="w-full h-48 object-cover rounded-t-lg"
             />
-            <h2 className="text-xl font-semibold mt-2">{food.name}</h2>
-            <p className="text-gray-600">{food.description}</p>
+            <h2 className="text-xl font-semibold mt-2 text-white">
+              {food.name}
+            </h2>
+            <p className="text-white">{food.description}</p>
             <p className="mt-2">
               <strong>Location:</strong> {food.location}
             </p>

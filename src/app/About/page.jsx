@@ -1,10 +1,37 @@
-// pages/about.js
+"use client";
 
 import Head from "next/head";
-import Link from "next/link";
+import { useState } from "react";
 import "../globals.css"; // Ensure this path matches your styles directory
 
+const aboutContent = [
+  {
+    title: "About Us",
+    text: "Welcome to Romania Tourism! We are dedicated to providing you with the best travel experiences in Romania. Our team is passionate about showcasing the beauty, culture, and history of this incredible country.",
+  },
+  {
+    title: "Our Mission",
+    text: "Our mission is to create unforgettable travel experiences that connect you with the rich heritage and stunning landscapes of Romania. We strive to offer personalized services that cater to your unique travel needs.",
+  },
+  {
+    title: "Our Values",
+    text: "Integrity: We believe in transparency and honesty in all our dealings.\nCustomer Focus: Our clients are at the heart of everything we do.\nPassion: We are passionate about travel and dedicated to sharing our love for Romania.\nInnovation: We continuously seek new ways to enhance your travel experience.",
+  },
+];
+
 export default function About() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextContent = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % aboutContent.length);
+  };
+
+  const prevContent = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + aboutContent.length) % aboutContent.length
+    );
+  };
+
   return (
     <div>
       <Head>
@@ -22,48 +49,31 @@ export default function About() {
         />
       </Head>
 
-      <section className="about ">
-        <div className="">
-          <div className="flex flex-row justify-center items-center gap-16 ">
-            <div className="flex flex-col w-[400px]">
-              <h1 className="text-2xl text-blue-600">About Us</h1>
-              <p className=" text-white">
-                Welcome to Romania Tourism! We are dedicated to providing you
-                with the best travel experiences in Romania. Our team is
-                passionate about showcasing the beauty, culture, and history of
-                this incredible country.
-              </p>
-            </div>
+      <section className="about h-[100vh] flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-7xl text-blue-600 mb-10">
+            {aboutContent[currentIndex].title}
+          </h1>
+          <p className="text-white text-4xl mt-10">
+            {aboutContent[currentIndex].text}
+          </p>
 
-            <div className="flex flex-col justify-center items-center w-[400px]">
-              <h1 className="text-2xl text-blue-600">Our Mission</h1>
-              <p className="text-white">
-                Our mission is to create unforgettable travel experiences that
-                connect you with the rich heritage and stunning landscapes of
-                Romania. We strive to offer personalized services that cater to
-                your unique travel needs.
-              </p>
-            </div>
+          <div className="flex justify-between w-full mt-4">
+            <button
+              onClick={prevContent}
+              className="text-blue-600 hover:underline"
+              disabled={currentIndex === 0}
+            >
+              Previous
+            </button>
+            <button
+              onClick={nextContent}
+              className="text-blue-600 hover:underline"
+              disabled={currentIndex === aboutContent.length - 1}
+            >
+              Next
+            </button>
           </div>
-
-          <h1 className="text-blue-600 text-2xl">Our Values</h1>
-          <ul className="text-white">
-            <li>
-              Integrity: We believe in transparency and honesty in all our
-              dealings.
-            </li>
-            <li>
-              Customer Focus: Our clients are at the heart of everything we do.
-            </li>
-            <li>
-              Passion: We are passionate about travel and dedicated to sharing
-              our love for Romania.
-            </li>
-            <li>
-              Innovation: We continuously seek new ways to enhance your travel
-              experience.
-            </li>
-          </ul>
         </div>
       </section>
     </div>

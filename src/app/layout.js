@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import GoogleTranslate from "../../components/GoogleTranslate";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,14 +25,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
+        <header className="bg-gray-800">
           <div className="logo">
             <Link href="/" aria-label="Homepage">
               Romania Tourism
             </Link>
           </div>
           <nav>
-            <ul>
+            <ul className="flex justify-center items-center ">
               <li>
                 <Link href="/" aria-label="Go to Home">
                   Home
@@ -56,6 +57,9 @@ export default function RootLayout({ children }) {
                 <Link href="/contact" aria-label="Contact Us">
                   Contact
                 </Link>
+              </li>
+              <li>
+                <GoogleTranslate />
               </li>
             </ul>
           </nav>
