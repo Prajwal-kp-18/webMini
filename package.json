@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "leaflet": "^1.9.4",
-    "next": "15.0.2",
+    "next": "14.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
+    "@types/node": "22.10.5",
+    "@types/react": "19.0.2",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "postcss": "^8",
